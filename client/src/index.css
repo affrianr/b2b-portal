@@ -1,0 +1,494 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  grid-template-rows: 4rem 1fr;
+  grid-template-areas:
+    "side header"
+    "side main";
+}
+
+.header {
+  background: white;
+  grid-area: header;
+  /* grid-column: 2/3;
+  grid-row: 0/3; */
+  /* display: flex; */
+}
+
+.sidebar {
+  background: black;
+  grid-area: side;
+  /* min-height: auto; */
+  /* grid-column: 1/2;
+  grid-row: 1/3; */
+}
+
+.main {
+  height: 100vh;
+  background: whitesmoke;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+/* ===== Reusable CSS ===== */
+.sidebar .text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sidebar .image {
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Sidebar ===== */
+.sidebar aside {
+  display: flex;
+  flex-direction: column;
+  align-items: ce;
+}
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar li {
+  height: 3rem;
+  width: 100%;
+  margin-top: 0.75rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background: green;
+  border-radius: 0.75rem;
+  color: black;
+}
+
+.sidebar li:hover .icon {
+  color: black;
+}
+
+.sidebar li .icon {
+  margin-left: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  min-height: 60px;
+  font-size: 20px;
+}
+
+.sidebar li span {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px;
+}
+.sidebar header {
+  position: relative;
+}
+
+.sidebar .menu-bar {
+  position: relative;
+  margin-top: 50px;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.sidebar .image-text img {
+  width: 40px;
+  border-radius: 6px;
+  /* background-color: #fafafa; */
+}
+
+.sidebar aside header {
+  margin-top: 3rem;
+  padding: 10px;
+}
+
+.sidebar header .image-text {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar header .image-text .header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.header nav .search {
+  flex: 1;
+  padding: 10px;
+  align-items: center;
+}
+
+.header nav .box {
+  display: flex;
+  background: rgb(216, 216, 216);
+  width: fit-content;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.header nav .box input {
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  border-width: 0;
+  width: 20rem;
+}
+
+.header nav .box input::placeholder {
+  color: black;
+}
+
+.header nav .menu {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.header nav .menu .user {
+  /* flex: 3; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+}
+
+.header nav .menu .user .name {
+  font-weight: 500;
+}
+
+.header nav .menu .left {
+  /* flex: 2; */
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header nav .menu img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header nav .menu i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header nav .menu i:hover {
+  color: gray;
+}
+
+/* Main Dashboard */
+.main .main-dashboard {
+  box-shadow: 0 0 0.313rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  grid-column: 1 / 5;
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr 0.2fr 1fr 1fr;
+  height: 52vh;
+}
+
+.main-dashboard .header {
+  grid-column: 1 / 5;
+  grid-row: 1/1;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+}
+
+.main-dashboard .time {
+  grid-column: 1 / 5;
+  grid-row: 2/2;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.5rem;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.main-dashboard .time span {
+  cursor: pointer;
+  /* background: rgb(188, 188, 188); */
+  box-shadow: 0 0 0.313rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+
+.time span:hover {
+  background: green;
+}
+
+.main-dashboard .cards {
+  grid-column: 1/5;
+  grid-row: 3/5;
+  gap: 2rem;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.main-dashboard .cards .mini-chart {
+  box-shadow: 0 0 0.313rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.625rem;
+}
+
+.main .second-dashboard {
+  box-shadow: 0 0 0.313rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.625rem;
+  gap: 0.75rem;
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.second-dashboard .large {
+  grid-column: 1/3;
+  height: 40vh;
+  /* background: white; */
+  border-radius: 0.75rem;
+}
+
+.second-dashboard .small {
+  /* background: blue; */
+  height: 40vh;
+  border-radius: 0.75rem;
+}
+
+.dashboard-cards {
+  /* background: gray; */
+  /* border-width: 10px; */
+
+  height: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.dashboard-cards .data {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.dashboard-cards .title {
+  font-size: 1.1rem;
+  font-weight: 350;
+}
+
+.dashboard-cards .sales {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.dashboard-cards .growth-up {
+  color: green;
+}
+.dashboard-cards .growth-down {
+  color: red;
+}
+.dashboard-cards .chart {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 1rem;
+}
+
+/* LOGIN FORM */
+.container-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-form .container-login {
+  display: flex;
+  width: 50rem;
+  height: 31.25rem;
+  justify-content: space-between;
+  box-shadow: 0 0 0.313rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.container-login .left {
+  flex: 1;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.container-login .right {
+  flex: 1;
+
+  width: 50%;
+  /* background: red; */
+}
+.container-login .right img {
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.container-form .logo {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.container-form .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.container-form .company {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container-form .company span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.container-login form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 10px;
+}
+
+form label {
+  font-weight: 500;
+}
+
+form input#email {
+  margin-bottom: 1rem;
+  height: 2.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border-color: transparent;
+  text-indent: 10px;
+  background: whitesmoke;
+}
+
+form input#name {
+  margin-bottom: 1rem;
+  height: 2.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border-color: transparent;
+  text-indent: 10px;
+  background: whitesmoke;
+}
+
+form input#password {
+  margin-bottom: 1rem;
+  height: 2.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border-color: transparent;
+  text-indent: 10px;
+  background: whitesmoke;
+}
+
+form input#phone {
+  margin-bottom: 1rem;
+  height: 2.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border-color: transparent;
+  text-indent: 10px;
+  background: whitesmoke;
+}
+
+/* input#email {
+  background-image: url("../src/assets/logo.jpg");
+  background-repeat: no-repeat;
+  text-indent: 20px;
+} */
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.remember-me {
+  display: flex;
+}
+
+form button {
+  cursor: pointer;
+  height: 2.2rem;
+  border-radius: 0.4rem;
+  border-color: transparent;
+  background: rgb(110, 153, 110);
+  color: white;
+  font-weight: 500;
+}
+
+form button:hover {
+  background: green;
+  color: white;
+}
+
+.create-account#get-started {
+  text-decoration: none;
+}
